@@ -3,7 +3,7 @@ package com.mhe.shopping;
 import java.util.HashMap;
 import java.util.Map;
 
-class ShoppingCart {
+public class ShoppingCart {
      
     private Map<String, CartItem> items = new HashMap<String, CartItem>();
     private Coupon coupon;
@@ -24,8 +24,10 @@ class ShoppingCart {
             return;
         else
             itemExists.quantity = itemExists.quantity-1;
-
-        items.put(product.id, itemExists);
+        if (itemExists.quantity > 0)
+            items.put(product.id, itemExists);
+        else
+            items.remove(product.id);
     }
 
     public double total() {
@@ -63,15 +65,6 @@ class ShoppingCart {
 
     public CartItem getItemInCart(Product product) {
         return items.get(product.id);
-    }
-}
-class CartItem {
-    Product product;
-    int quantity;
-
-    CartItem(Product p, int q) {
-        this.product = p;
-        this.quantity = q;
     }
 }
 
