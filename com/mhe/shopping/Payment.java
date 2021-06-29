@@ -8,11 +8,13 @@ public class Payment {
     Payment(ShoppingCart theCart) {
         this.cart = theCart;
     }
-    public void pay(double payment){
+    public boolean pay(double payment){
         totalPayed += payment;
-        if (totalPayed == payment) {
-            // done
+        if (totalPayed == this.cart.total()) {
+            return true;
         }
+
+        return false;
     }
 
     // public void cancle() {
