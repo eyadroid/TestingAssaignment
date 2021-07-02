@@ -11,7 +11,7 @@ public class Order {
     String status;
     static Map<String, Order> orders = new HashMap<String, Order>();
 
-    Order(String i, ShoppingCart c, Delivery d, String s, Payment p) {
+    public Order(String i, ShoppingCart c, Delivery d, String s, Payment p) {
         this.id = i;
         this.cart = c;
         this.deliveryLocation = d;

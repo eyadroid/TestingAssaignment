@@ -5,7 +5,7 @@ public class Payment {
     ShoppingCart cart;
     PaymentMethod paymentMethod;
     String status;
-    Payment(ShoppingCart theCart, PaymentMethod pm) {
+    public Payment(ShoppingCart theCart, PaymentMethod pm) {
         this.cart = theCart;
         this.paymentMethod = pm;
         this.status = "PENDING";

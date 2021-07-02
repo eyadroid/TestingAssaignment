@@ -72,7 +72,7 @@ class Coupon {
     String code;
     int percent;
 
-    Coupon(String c, int p) {
+    public Coupon(String c, int p) {
         this.code = c;
         this.percent = p;
     }

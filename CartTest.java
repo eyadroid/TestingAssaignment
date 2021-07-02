@@ -1,5 +1,6 @@
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+import org.junit.After;
 import com.mhe.shopping.ShoppingCart;
 import com.mhe.shopping.Product;
 
@@ -23,13 +24,13 @@ public class CartTest {
 
    @Test
    public void testRemoveFromCart() {
-      Product product1 =new Product(
+      Product product1 = new Product(
          "test1",
          "Smart Watch",
          200,
          1
       );
-      Product product2 =new Product(
+      Product product2 = new Product(
          "test2",
          "Smart Watch",
          200,
@@ -40,9 +41,15 @@ public class CartTest {
       cart.addToCart(product2, 1);
 
       cart.removeFromCart(product1);
-      System.out.println("it is: " +  cart.getItems().length);
       assertEquals(cart.getItems().length, 1);
       cart.removeFromCart(product2);
       assertEquals(cart.getItems().length, 0);
+   }
+
+   //execute for each test, after executing test
+   @After
+   public void after() {
+      cart = null;
+      cart = new ShoppingCart();
    }
 }
