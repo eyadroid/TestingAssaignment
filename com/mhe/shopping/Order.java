@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Order {
-    String id;
-    ShoppingCart cart;
-    Delivery deliveryLocation;
-    Payment payment;
-    String status;
+    public String id;
+    public ShoppingCart cart;
+    public Delivery deliveryLocation;
+    public Payment payment;
+    public String status;
     static Map<String, Order> orders = new HashMap<String, Order>();
 
     public Order(String i, ShoppingCart c, Delivery d, String s, Payment p) {
@@ -19,7 +19,7 @@ public class Order {
         this.payment = p;
     }
 
-    static String placeOrder(ShoppingCart shoppingCart, Delivery deliveryLocation, Payment payment) {
+    public static String placeOrder(ShoppingCart shoppingCart, Delivery deliveryLocation, Payment payment) {
         if (payment.status != "COMPLETED") throw new Error("Payment Not Completed");
         Order newOrder = new Order(
             orders.size()+"",
@@ -36,7 +36,7 @@ public class Order {
         return newOrder.id;
     }
 
-    static void cancel(String orderId) {
+    public static void cancel(String orderId) {
         Order theOrder = orders.get(orderId);
         if (theOrder == null) return;
 
@@ -45,7 +45,7 @@ public class Order {
         orders.put(theOrder.id, theOrder);
     }
 
-    static void changeDeliveryLocation(String orderId, Delivery newLocation) {
+    public static void changeDeliveryLocation(String orderId, Delivery newLocation) {
         Order theOrder = orders.get(orderId);
         if (theOrder == null) return;
 
@@ -54,7 +54,7 @@ public class Order {
         orders.put(theOrder.id, theOrder);
     }
 
-    static Order getOrder(String orderId) {
+    public static Order getOrder(String orderId) {
         return orders.get(orderId);
     }
 

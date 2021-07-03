@@ -24,7 +24,7 @@ public class Product {
         this.stock = s;
     }
 
-    static Product[] products = {
+    public static Product[] products = {
         new Product(
             "1",
             "Iphone 6+",

@@ -8,6 +8,10 @@ public class ShoppingCart {
     private Map<String, CartItem> items = new HashMap<String, CartItem>();
     private Coupon coupon;
 
+    public ShoppingCart() {
+        
+    }
+
     public void addToCart(Product product, int quantity) {
         CartItem itemExists = this.getItemInCart(product);
         if (itemExists != null)

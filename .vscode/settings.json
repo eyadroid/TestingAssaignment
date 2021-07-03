@@ -1,0 +1,10 @@
+{
+    "java.project.sourcePaths": [
+        ""
+    ],
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\junit\\junit.jar",
+        "junit/junit.jar"
+    ]
+}

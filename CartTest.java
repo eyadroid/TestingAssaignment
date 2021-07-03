@@ -17,9 +17,15 @@ public class CartTest {
          200,
          1
       ), 1);
+      cart.addToCart(new Product(
+         "test2",
+         "Smart Watch",
+         200,
+         1
+      ), 1);
 
       // items must be 1
-      assertEquals(cart.getItems().length, 1);
+      assertEquals(cart.getItems().length, 2);
    }
 
    @Test
@@ -46,6 +52,20 @@ public class CartTest {
       assertEquals(cart.getItems().length, 0);
    }
 
+   @Test
+   public void testTotal() {
+      card.addToCart(Product.products[0], 1);
+      card.addToCart(Product.products[1], 2);
+      card.addToCart(Product.products[2], 1);
+      assertEquals(1800.0, cart.total());
+   }
+
+   @Test
+   public void testCoupon() {
+      cart.addToCart(Product.products[2], 1);
+      cart.applyCoupon("FREEDISCOUNT");
+      assertEquals(800, cart.total());
+   }
    //execute for each test, after executing test
    @After
    public void after() {
